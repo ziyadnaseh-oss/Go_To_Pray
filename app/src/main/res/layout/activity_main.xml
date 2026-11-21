@@ -1,0 +1,256 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.core.widget.NestedScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/scrollViewMain"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/bg_main"
+    android:fillViewport="true">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:padding="16dp">
+
+        <!-- Top Bar: App Title & Actions -->
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="center_vertical"
+            android:orientation="horizontal">
+
+            <ImageView
+                android:layout_width="36dp"
+                android:layout_height="36dp"
+                android:contentDescription="@null"
+                android:src="@drawable/ic_mosque" />
+
+            <LinearLayout
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="12dp"
+                android:layout_marginEnd="12dp"
+                android:layout_weight="1"
+                android:orientation="vertical">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:fontFamily="sans-serif-black"
+                    android:text="@string/app_name"
+                    android:textColor="@color/white"
+                    android:textSize="20sp"
+                    android:textStyle="bold" />
+
+                <TextView
+                    android:id="@+id/tvCurrentCity"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:clickable="true"
+                    android:focusable="true"
+                    android:fontFamily="sans-serif-medium"
+                    android:textColor="@color/gold_light"
+                    android:textSize="13sp"
+                    tools:text="القاهرة، مصر (اضغط للتغيير)" />
+            </LinearLayout>
+
+            <!-- Auto Location Button -->
+            <ImageButton
+                android:id="@+id/btnDetectLocation"
+                android:layout_width="40dp"
+                android:layout_height="40dp"
+                android:background="@drawable/bg_badge"
+                android:contentDescription="@string/auto_location"
+                android:padding="8dp"
+                android:src="@drawable/ic_location" />
+
+            <!-- Manual Refresh Button -->
+            <ImageButton
+                android:id="@+id/btnRefreshTimes"
+                android:layout_width="40dp"
+                android:layout_height="40dp"
+                android:layout_marginStart="8dp"
+                android:background="@drawable/bg_badge"
+                android:contentDescription="@string/refresh_times"
+                android:padding="8dp"
+                android:src="@drawable/ic_refresh" />
+        </LinearLayout>
+
+        <!-- Date Header Card -->
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="16dp"
+            android:background="@drawable/bg_card_rounded"
+            android:gravity="center"
+            android:orientation="vertical"
+            android:padding="12dp">
+
+            <TextView
+                android:id="@+id/tvHijriDate"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:fontFamily="sans-serif-medium"
+                android:textColor="@color/gold_primary"
+                android:textSize="15sp"
+                tools:text="٢١ جمادى الأولى ١٤٤٨ هـ" />
+
+            <TextView
+                android:id="@+id/tvGregorianDate"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="2dp"
+                android:fontFamily="sans-serif"
+                android:textColor="@color/text_secondary"
+                android:textSize="13sp"
+                tools:text="السبت، 21 نوفمبر 2026" />
+        </LinearLayout>
+
+        <!-- Hero Card: Next Upcoming Prayer & Live Countdown -->
+        <LinearLayout
+            android:id="@+id/cardNextPrayerHero"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="16dp"
+            android:background="@drawable/bg_card_highlighted"
+            android:elevation="4dp"
+            android:gravity="center"
+            android:orientation="vertical"
+            android:padding="20dp">
+
+            <TextView
+                android:id="@+id/tvNextPrayerTitle"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:fontFamily="sans-serif-medium"
+                android:text="الصلاة القادمة: الظهر"
+                android:textColor="@color/gold_light"
+                android:textSize="16sp" />
+
+            <!-- Big Live Countdown Timer -->
+            <TextView
+                android:id="@+id/tvNextPrayerCountdown"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="4dp"
+                android:fontFamily="sans-serif-black"
+                android:textColor="@color/white"
+                android:textSize="38sp"
+                android:textStyle="bold"
+                tools:text="02:15:30" />
+
+            <TextView
+                android:id="@+id/tvNextPrayerTimeExact"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="2dp"
+                android:fontFamily="sans-serif-medium"
+                android:textColor="@color/text_secondary"
+                android:textSize="15sp"
+                tools:text="موعد الأذان: 11:43 ص" />
+        </LinearLayout>
+
+        <!-- Section Title: مواقيت صلوات اليوم -->
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="20dp"
+            android:layout_marginBottom="8dp"
+            android:fontFamily="sans-serif-medium"
+            android:text="مواقيت اليوم"
+            android:textColor="@color/text_primary"
+            android:textSize="17sp"
+            android:textStyle="bold" />
+
+        <!-- Prayer Times Container (Pure XML Views) -->
+        <LinearLayout
+            android:id="@+id/layoutPrayerRows"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+
+            <!-- Fajr -->
+            <include
+                android:id="@+id/rowFajr"
+                layout="@layout/item_prayer_row" />
+
+            <!-- Sunrise -->
+            <include
+                android:id="@+id/rowSunrise"
+                layout="@layout/item_prayer_row" />
+
+            <!-- Dhuhr -->
+            <include
+                android:id="@+id/rowDhuhr"
+                layout="@layout/item_prayer_row" />
+
+            <!-- Asr -->
+            <include
+                android:id="@+id/rowAsr"
+                layout="@layout/item_prayer_row" />
+
+            <!-- Maghrib -->
+            <include
+                android:id="@+id/rowMaghrib"
+                layout="@layout/item_prayer_row" />
+
+            <!-- Isha -->
+            <include
+                android:id="@+id/rowIsha"
+                layout="@layout/item_prayer_row" />
+        </LinearLayout>
+
+        <!-- Status & Test Actions -->
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="20dp"
+            android:background="@drawable/bg_card_rounded"
+            android:gravity="center_vertical"
+            android:orientation="horizontal"
+            android:padding="12dp">
+
+            <ImageView
+                android:layout_width="24dp"
+                android:layout_height="24dp"
+                android:contentDescription="@null"
+                android:src="@drawable/ic_alarm_active" />
+
+            <TextView
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="8dp"
+                android:layout_marginEnd="8dp"
+                android:layout_weight="1"
+                android:fontFamily="sans-serif-medium"
+                android:text="@string/alarm_active_status"
+                android:textColor="@color/emerald_accent"
+                android:textSize="13sp" />
+
+            <!-- Test Adhan Alarm Button -->
+            <com.google.android.material.button.MaterialButton
+                android:id="@+id/btnTestAlarm"
+                style="@style/Widget.Material3.Button.TonalButton"
+                android:layout_width="wrap_content"
+                android:layout_height="38dp"
+                android:fontFamily="sans-serif-medium"
+                android:text="@string/test_alarm"
+                android:textColor="@color/white"
+                android:textSize="12sp"
+                app:backgroundTint="#2D3748" />
+        </LinearLayout>
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="12dp"
+            android:layout_marginBottom="16dp"
+            android:gravity="center"
+            android:text="@string/offline_mode_note"
+            android:textColor="@color/text_muted"
+            android:textSize="12sp" />
+
+    </LinearLayout>
+</androidx.core.widget.NestedScrollView>

@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="black">#FF000000</color>
+    <color name="white">#FFFFFFFF</color>
+    
+    <!-- Primary Theme Colors (Deep Emerald & Gold) -->
+    <color name="bg_main">#0B1917</color>
+    <color name="bg_card">#132B27</color>
+    <color name="bg_card_highlight">#193A34</color>
+    <color name="bg_card_active">#1C443D</color>
+    
+    <color name="gold_primary">#D4AF37</color>
+    <color name="gold_light">#F5D77F</color>
+    <color name="gold_dark">#997D24</color>
+    <color name="gold_accent">#E6C054</color>
+    
+    <color name="emerald_accent">#10B981</color>
+    <color name="emerald_glow">#2010B981</color>
+    <color name="text_primary">#FFFFFF</color>
+    <color name="text_secondary">#B0C4DE</color>
+    <color name="text_muted">#7C9289</color>
+    
+    <!-- Alarm Screen Specific Colors -->
+    <color name="alarm_bg">#070F0E</color>
+    <color name="stop_button_bg">#DC2626</color>
+    <color name="stop_button_pressed">#991B1B</color>
+    <color name="stop_button_glow">#40DC2626</color>
+    <color name="stop_button_border">#FFAAAA</color>
+</resources>

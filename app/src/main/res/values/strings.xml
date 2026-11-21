@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">مواقيت الصلاة</string>
+    <string name="fajr">الفجر</string>
+    <string name="sunrise">الشروق</string>
+    <string name="dhuhr">الظهر</string>
+    <string name="asr">العصر</string>
+    <string name="maghrib">المغرب</string>
+    <string name="isha">العشاء</string>
+    
+    <string name="next_prayer">الصلاة القادمة</string>
+    <string name="remaining_time">متبقي</string>
+    <string name="city_label">المدينة</string>
+    <string name="change_city">تغيير المدينة</string>
+    <string name="auto_location">تحديد الموقع تلقائياً</string>
+    <string name="refresh_times">تحديث المواقيت</string>
+    <string name="test_alarm">تجربة شاشة الأذان</string>
+    <string name="alarm_active_status">الأذان مفعل لجميع الصلوات</string>
+    <string name="adhan_time_now">حان الآن موعد أذان</string>
+    <string name="stop_adhan">إيقاف الأذان</string>
+    <string name="notification_channel_name">منبه الأذان</string>
+    <string name="notification_channel_desc">تنبيهات مواقيت الصلاة والأذان</string>
+    <string name="offline_mode_note">المواقيت محسوبة ومخزنة بدون إنترنت</string>
+</resources>
